@@ -1,0 +1,5 @@
+I write the scripts to make linux's configuration more convinent for me.
+I don't think you need the scripts.
+TODO:
+    chmod u+x *.sh
+    ./cfg.sh

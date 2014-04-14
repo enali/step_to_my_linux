@@ -1,0 +1,10 @@
+deb http://mirror.buaa.edu.cn/ubuntu/ lzp main multiverse restricted universe
+deb http://mirror.buaa.edu.cn/ubuntu/ lzp-backports main multiverse restricted universe
+deb http://mirror.buaa.edu.cn/ubuntu/ lzp-proposed main multiverse restricted universe
+deb http://mirror.buaa.edu.cn/ubuntu/ lzp-security main multiverse restricted universe
+deb http://mirror.buaa.edu.cn/ubuntu/ lzp-updates main multiverse restricted universe
+deb-src http://mirror.buaa.edu.cn/ubuntu/ lzp main multiverse restricted universe
+deb-src http://mirror.buaa.edu.cn/ubuntu/ lzp-backports main multiverse restricted universe
+deb-src http://mirror.buaa.edu.cn/ubuntu/ lzp-proposed main multiverse restricted universe
+deb-src http://mirror.buaa.edu.cn/ubuntu/ lzp-security main multiverse restricted universe
+deb-src http://mirror.buaa.edu.cn/ubuntu/ lzp-updates main multiverse restricted universe
