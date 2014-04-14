@@ -11,7 +11,7 @@ if [ "$#" = 3 ]; then
 else
     EDITOR=vim
     USER=enali
-    EMAIL=dreamrider2011@gmail.com
+    EMAIL=enalix@163.com
 fi
 
 printf "Config git ... "
