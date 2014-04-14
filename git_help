@@ -1,0 +1,13 @@
+# master branch
+git init
+git add file
+git commit -m "string"
+git remote add origin URL
+git push -u origin master
+# develop branch
+git checkout -b develop master
+git checkout master
+git merge --no-ff develop
+# feature-x, release, bug branch
+git branch -d feature-x/release/bug
+git tag -a number
