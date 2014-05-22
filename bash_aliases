@@ -1,10 +1,10 @@
 EDITOR=vim
 # alias for apt
-alias acs='sudo apt-cache search'
-alias acp='sudo apt-cache showpkg'
+alias acs='apt-cache search'
+alias acp='apt-cache showpkg'
 alias agi='sudo apt-get install'
 alias agp='sudo apt-get purge'
-alias agu='sudo apt-get update && sudo apt-get upgrade'
+alias agu='sudo apt-get update && sudo apt-get -y upgrade'
 alias agc='sudo apt-get autoremove && sudo apt-get autoclean'
 alias aap='sudo apt-add-repository'
 # alias for git

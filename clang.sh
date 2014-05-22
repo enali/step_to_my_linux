@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 if [ "$#" = 1 ]; then
     WKDIR=$1
 else
@@ -16,21 +16,21 @@ svn co http://llvm.org/svn/llvm-project/clang-tools-extra/trunk $WKDIR/llvm/tool
 svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk $WKDIR/llvm/projects/compiler-rt
 #6. Build LLVM and Clang
 cd $WKDIR/llvm && mkdir build && cd build
-. ../llvm/configure --enable-optimized CC=/usr/bin/gcc CXX=/usr/bin/g++
+../configure --enable-optimized CC=/usr/bin/gcc CXX=/usr/bin/g++
 make && sudo make install
 #7. Build libc++.so
 svn co http://llvm.org/svn/llvm-project/libcxx/trunk $WKDIR/libcxx
 cd $WKDIR/libcxx/lib
-. ./buildit
-sudo cp libc++.so /usr/lib/
+./buildit
+sudo cp libc++.so.1.0 /usr/lib/
 sudo ln -s /usr/lib/libc++.so.1.0 /usr/lib/libc++.so.1
 sudo ln -s /usr/lib/libc++.so.1.0 /usr/lib/libc++.so
 sudo cp -r ../include/ /usr/include/c++/v1/
 #8. Build libc++abi.so
 svn co http://llvm.org/svn/llvm-project/libcxxabi/trunk $WKDIR/libcxxabi
 cd $WKDIR/libcxxabi/lib
-. ./buildit
-sudo cp libc++abi.so /usr/lib/
+./buildit
+sudo cp libc++abi.so.1.0 /usr/lib/
 sudo ln -s /usr/lib/libc++abi.so.1.0 /usr/lib/libc++abi.so.1
 sudo ln -s /usr/lib/libc++abi.so.1.0 /usr/lib/libc++abi.so
 sudo cp -r ../include/ /usr/include/c++/v1/

@@ -1,6 +1,6 @@
 "====   base set
 set nocompatible
-set incsearch
+set incsearch hlsearch
 set ignorecase
 set wildmenu
 "set backspace=indent,eol,start
@@ -17,6 +17,7 @@ set ruler
 set nu
 runtime ftplugin/man.vim
 let mapleader=";"
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
 "====   scheme
 colorscheme solarized
 let g:solarized_termcolors=256
@@ -53,45 +54,53 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set foldmethod=syntax
-set nofoldenable
+"set nofoldenable
 "====   vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'SirVer/ultisnips'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'yegappan/grep'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Yggdroot/indentLine'
-Bundle 'mattn/emmet-vim'
-"Bundle 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrolloff/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+"Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+"Plugin 'kchmck/vim-coffee-script'
+"Plugin 'yegappan/grep'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'
+Plugin 'mattn/emmet-vim'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'joonty/vdebug'
+Plugin 'parkr/vim-jekyll'
 
-Bundle 'vimwiki'
-Bundle 'DrawIt'
-Bundle 'a.vim'
+Plugin 'vimwiki'
+Plugin 'DrawIt'
+Plugin 'a.vim'
 filetype plugin indent on
 "====   tagbar
+"o:change sort mode; v:hide non-public method; x:zoom window; q:quit
+"zo/zc zO/zC:fold open/close
+"space:display prototype of a tag
+"c-n/p: go to next/pre top-level tag
 let tagbar_left=1
 nnoremap <leader>tl :TagbarToggle<cr>
 let tagbar_width=30
 let g:tagbar_compact=1
-let g:tagbar_type_cpp={'kinds':['d:macros:1','g:enums','t:typedefs:0:0','e:enumerators:0:0','n:namespaces','c:classes','s:structs','u:unions','f:functions',
-                                \ 'm:members:0:0', 'v:global:0:0', 'x:external:0:0', 'l:local:0:0'],
-                    \ 'sro' : '::', 
-                    \ 'kind2scope' :{ 'g':'enum', 'n':'namespace', 'c':'class', 's':'struct', 'u':'union'},
-                    \ 'scope2kind' : {'enum' : 'g', 'namespace':'n', 'class':'c', 'struct':'s', 'union':'u'} }
+let g:tagbar_autofocus = 1
+let g:tagbar_indent = 4
+let g:tagbar_show_linenumbers = 2
+let g:tagbar_autopreview = 1
 "====   ultisnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
@@ -102,7 +111,6 @@ let g:ycm_warning_symbol = '>*'
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
 nnoremap <leader>gg :YcmCompleter GoToDeclarationElseDeclaration<cr>
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=1
@@ -146,5 +154,13 @@ nmap <Leader>lr <Plug>VimwikiRenameLink
 nmap == <Plug>VimwikiAddHeaderLevel
 nmap -- <Plug>VimwikiRemoveHeaderLevel
 "====   emmet
-let g:user_emmet_leader_key = '<c-y>'
+let g:user_emmet_leader_key = '<c-l>'
 let use_emmet_complete_tag = 1
+"===-   ctrlp
+"c-d: change choose mode by file/path
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+\ }
