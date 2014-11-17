@@ -1,3 +1,13 @@
+"====   GUI
+set guioptions-=m
+set guioptions-=T
+set guioptions-=L
+set guioptions-=r
+winsize 120 30
+
+colorscheme solarized
+set background=dark
+set cursorline cursorcolumn
 "====   base set
 set nocompatible
 set incsearch hlsearch
