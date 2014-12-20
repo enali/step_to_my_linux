@@ -24,21 +24,21 @@ set virtualedit=block
 set scrolloff=5
 set cmdheight=2
 set ruler
-set nu
+set nu rnu
 runtime ftplugin/man.vim
+
 let mapleader=";"
+let maplocalleader=','
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
-"====   scheme
+"====   colorscheme
 colorscheme solarized
 let g:solarized_termcolors=256
 set background=dark
-set cursorline
-set cursorcolumn
+set cursorline cursorcolumn
 "====   base nmap
 nmap <leader>a 0
 nmap <leader>e $
-nmap <leader>q :q<cr>
-nmap <leader>z :q!<cr>
+nmap <leader>z :q<cr>
 nmap <leader>w :w<cr>
 nmap <leader>x :x<cr>
 nmap <leader>f %
@@ -79,20 +79,24 @@ Plugin 'scrolloff/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-"Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
-"Plugin 'kchmck/vim-coffee-script'
-"Plugin 'yegappan/grep'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'yegappan/grep'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mattn/emmet-vim'
-"Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'joonty/vdebug'
 Plugin 'parkr/vim-jekyll'
+Plugin 'benmills/vimux'
+Plugin 'groenewege/vim-less'
+Plugin 'wannesm/wmgraphviz.vim'
+Plugin 'gabrielelana/vim-markdown'
 
 Plugin 'vimwiki'
 Plugin 'DrawIt'
