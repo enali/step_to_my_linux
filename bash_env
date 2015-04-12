@@ -1,0 +1,31 @@
+# vim:filetype=sh:
+
+APP_HOME="$HOME/Applications"
+
+#### version
+LLVM_VERSION="3.6.0"
+MAVEN_VERSION="3.3.1"
+ANT_VERSION="1.9.4"
+HADOOP_VERSION="2.6.0"
+ECLIPSE_VERSION="4.4.1"
+FINDBUGS_VERSION="3.0.0"
+NODE_VERSION="0.12.2"
+#JAVA_VERSION="1.8.0_25"
+
+#### home
+export ANDROID_SDK="$HOME/Android/Sdk"
+export LLVM_HOME="$APP_HOME/clang+llvm-$LLVM_VERSION"
+export MAVEN_HOME="$APP_HOME/apache-maven-$MAVEN_VERSION"
+export ANT_HOME="$APP_HOME/apache-ant-$ANT_VERSION"
+export HADOOP_HOME="$APP_HOME/hadoop-$HADOOP_VERSION"
+export ECLIPSE_HOME="$APP_HOME/eclipse-$ECLIPSE_VERSION"
+export FINDBUGS_HOME="$APP_HOME/findbugs-$FINDBUGS_VERSION"
+export NODE_HOME="$APP_HOME/node-v$NODE_VERSION-linux-x64"
+#export JAVA_HOME="$APP_HOME/jdk$JAVA_VERSION"
+
+#### extra config 
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
+export HADOOP_CONF_DIR="$HOME/.config/hadoop"
+
+#### path
+export PATH=$PATH:$HOME/.rvm/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$FINDBUGS_HOME/bin:$ANDROID_SDK/platform-tools:$ANDROID_SDK/tools:$LLVM_HOME/bin:$NODE_HOME/bin 
