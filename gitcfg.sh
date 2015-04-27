@@ -16,6 +16,7 @@ git config --global credential.helper cache
 # git config --global user.signingkey $PUBID
 
 #=> alias
+git config --global alias.cl clone
 git config --global alias.co checkout
 git config --global alias.ci commit
 git config --global alias.br branch
