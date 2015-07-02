@@ -38,6 +38,11 @@ success_or_not() {
 addr=/usr/local/bin
 priority=100
 
+if [ $# != 1 ]; then
+  echo "Usage: ./javacfg.sh [--add][--rm]"
+  exit 3
+fi
+
 if [ $1 = "--add" ]; then
   echo "Will add all java cmd ... "
   echo "========================="
