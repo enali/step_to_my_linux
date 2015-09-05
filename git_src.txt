@@ -1,0 +1,13 @@
+torvalds/linux
+# hack tool
+vanhauser-thc/thc-hydra
+offensive-security/exploit-database
+# android
+pxb1988/dex2jar
+iBotPeaches/Apktool
+java-decompiler/jd-gui
+# language
+ruby/ruby
+rust-lang/rust
+# lib
+matplotlib/matplotlib
