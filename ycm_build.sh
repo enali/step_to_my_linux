@@ -7,7 +7,7 @@ VUNDLE_DIR=~/.vim/bundle/vundle
 YCM_DIR=~/.vim/bundle/YouCompleteMe
 
 if [ ! -d $VUNDLE_DIR ]; then
-  echo "You haven't git clone 'gmarik/vundle'"
+  echo "You haven't git clone 'VundleVim/Vundle.vim'"
   exit 1
 fi
 if [ ! -d $YCM_DIR ]; then

@@ -6,12 +6,6 @@ alias agp='sudo apt-get purge'
 alias agu='sudo apt-get update && sudo apt-get -y upgrade'
 alias agc='sudo apt-get autoremove && sudo apt-get autoclean'
 alias aar='sudo apt-add-repository'
-# alias for git
-alias gtc='git clone'
-alias gco='git checkout'
-alias gci='git commit'
-alias gbr='git branch'
-alias gmg='git merge'
 # alias for base
 alias ls='ls -F --color=auto'
 alias l='ls -lh'
@@ -21,7 +15,7 @@ alias h='history 15'
 alias hg='history | grep'
 alias free='free -m'
 alias cmount="mount | column -t"
-alias chrome="google-chrome"
+alias tmux='tmux-2'
 # emacs
 # "$ emacs -daemon"
 alias e="emacsclient -t"  #terminal client
