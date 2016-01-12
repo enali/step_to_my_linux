@@ -34,6 +34,8 @@ set linebreak
 "set foldcolumn=2
 " 允许Ctrl-A和Ctrl-X加减字母
 set nrformats+=alpha
+" 让第80列高亮
+set colorcolumn=80
 " 允许在命令行查询Man手册
 runtime ftplugin/man.vim
 
@@ -67,8 +69,10 @@ set expandtab
 set shiftwidth=2
 " 指定tab键宽度
 set softtabstop=2
+" 是否开启代码折叠
+set nofen "fen
 " 指定代码折叠的方式
-set foldmethod=syntax
+"set foldmethod=syntax
 
 "==== vundle
 filetype off
@@ -102,11 +106,15 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'asciidoc/vim-asciidoc'
 "Plugin 'terryma/vim-expand-region'
 Plugin 'wannesm/wmgraphviz.vim'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 "Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 """" vim-polyglot has include below
 "Plugin 'tpope/vim-git'
@@ -152,10 +160,12 @@ let g:ruby_indent_access_modifier_style='indent'
 " get a detailed diagnostic message: '<leader>d'
 let g:ycm_always_populate_location_list=1
 let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
-nnoremap <F5> :YcmForceCompileAndDiagnostics<cr>
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>jd :YcmCompleter GoTo<cr>
 
 "==== syntastic
@@ -244,3 +254,27 @@ nnoremap <silent> <leader>vi :VimShellInteractive<cr>
 "==== polyglot
 " python-mode is more better
 let g:polyglot_disabled = ['python','markdown','rust']
+
+"==== ack.vim
+let g:ackprg = 'ag  --vimgrep'
+
+"==== ctrlp.vim
+"c-p,直接输入字串,模糊搜索或c-r进行正则搜索,c-j/k进行选择,回车编辑或c-t/v在新tab页和垂直分割窗口编辑
+"c-f/b模式选择,文件/缓冲区/最近使用文件
+"c-d表示只对文件名进行匹配,不匹配整个路径名
+"c-n/p选择输入字串的历史回放
+"c-z标记/取消标记,c-o打开,用于一次打开多个标记文件
+"字串附加':'表示结束,跟cmd表示在指定文件上执行命令,跟数字表示跳转到指定行数,跟diffthis比较标记的多个文件
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
+
+"==== ros's config
+autocmd BufNewFile,BufReadPre *.launch,*.xacro,*.urdf,*.sdf set filetype=xml
+
+"==== python-mode
+"'<leader>r'运行python代码
+"'<leader>b'添加/移除断点

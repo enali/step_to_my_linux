@@ -12,10 +12,10 @@ alias l='ls -lh'
 alias ll='ls -alhF'
 alias lg='ll | grep'
 alias h='history 15'
-alias hg='history | grep'
 alias free='free -m'
 alias cmount="mount | column -t"
-alias tmux='tmux-2'
+alias tmux='tmux -2'
+alias dirs='dirs -p -v'
 # emacs
 # "$ emacs -daemon"
 alias e="emacsclient -t"  #terminal client
@@ -39,4 +39,4 @@ lcd() { cd "$1"; ls; }
 backup() { cp "$1"{,.bak};}
 md5check() { md5sum "$1" | grep "$2"; }
 psg() { ps aux | grep "$1" | grep -v "grep"; }
-psgk() { kill -9 $(ps aux | grep "$1" | grep -v "grep" | awk '{print $2}'); }
+psgk() { ps aux | grep "$1" | grep -v "grep" | awk '{print $2}' | xargs kill -9; }
